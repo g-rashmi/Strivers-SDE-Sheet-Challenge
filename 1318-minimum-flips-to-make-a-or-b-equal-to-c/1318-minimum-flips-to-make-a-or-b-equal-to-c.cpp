@@ -1,42 +1,29 @@
 class Solution {
-public:
-    int minFlips(int a, int b, int c) {
-vector<int>v1; 
-        vector<int>v2; 
-        vector<int>v3; int c1=0;
-        
-        while(a!=0){
-        v1.push_back(a%2);
+public: 
+    vector<int>dtob(int a){
+        vector<int>v(32,0);
+        int i=0;
+         while(a!=0){
+        v[i]=a%2;
             a=a/2;
+             i++;
         }
-         while(b!=0){
-        v2.push_back(b%2);
-            b=b/2;
-        } 
-         while(c!=0){
-        v3.push_back(c%2);
-            c=c/2;
-        } 
-        int m=max(v1.size(),max(v2.size(),v3.size()));
-        while(v1.size()<m){
-            v1.push_back(0);
-        }
-         while(v2.size()<m){
-            v2.push_back(0);
-        }
-         while(v3.size()<m){
-            v3.push_back(0);
-        }  
+        return v;
+    } 
     
-        for(int i=0;i<m;i++){
-            if((v1[i]|v2[i])!=v3[i]){
-    if(v1[i]==1&&v2[i]==1)
-                    c1++;
-                c1++;
-                
+    int minFlips(int a, int b, int c) {
+        int count=0;
+   vector<int>a1=dtob(a);
+          vector<int>b1=dtob(b);
+          vector<int>c1=dtob(c);
+        for(int i=0;i<32;i++){
+            if((a1[i]|b1[i])!=c1[i]){ 
+                if(a1[i]==1&&b1[i]==1)
+                    count++;
+                count++; 
             }
-        }
-        
-        return c1;
+                
+        } 
+            return count;
     }
 };
