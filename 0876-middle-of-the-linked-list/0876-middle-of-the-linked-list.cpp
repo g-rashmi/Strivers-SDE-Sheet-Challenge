@@ -20,7 +20,7 @@ public:
         } 
     temp=head;
         int r=(c/2);
-        while(r!=0&& temp!=NULL){
+        while(r!=0){
             temp=temp->next;r--;
         } 
         return temp;
