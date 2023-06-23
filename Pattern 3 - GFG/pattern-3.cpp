@@ -9,10 +9,10 @@ class Solution {
     void printTriangle(int n) {
         // code here 
         for(int i=0;i<n;i++){
-            int x=1;
+    
             for(int j=0;j<=i;j++){
-                cout<<x<<" ";
-                x++;
+                cout<<j+1<<" ";
+                
             }
             cout<<endl;
         }
